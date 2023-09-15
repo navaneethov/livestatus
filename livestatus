@@ -21,6 +21,6 @@ user = nagios
 server = /usr/local/bin/unixcat
 server_args = /usr/local/nagiosxi/var/subsys/livestatus
 # configure the IP address(es) of your Nagios server here:
-only_from = 10.65.32.239
+only_from = 127.0.0.1
 disable = no
 }
