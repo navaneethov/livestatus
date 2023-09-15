@@ -59,3 +59,17 @@ To install, run (as a root):
  ./configure CPPFLAGS=-I./nagios/
  make
  make install
+
+=== Configure ===
+
+Configure Nagios broker
+ Edit /usr/local/nagios/etc/nagios.cfg and add the below line in the bottom of the file
+
+ broker_module=/usr/local/lib/mk-livestatus/livestatus.o /usr/local/nagiosxi/var/subsys/livestatus
+
+Configure xinetd service
+ cp livestatus /etc/xinetd.d/livestatus
+ systemctl restart xinetd
+ netstat -tlpn | grep 5667	# To verify
+
+Edit xinetd config and allow IPs for remote clients.
